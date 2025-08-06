@@ -2,19 +2,20 @@ import React, {useEffect, useState} from 'react';
 import Card from "../components/Card.jsx"
 
 const HomePage = () => {
-    const[cardData, setCardData] = useState([]);
+    const[posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch("/card-data.json")
+        fetch("https://jsonplaceholder.typicode.com/posts")
             .then((response) =>response.json())
-            .then((data) => setCardData(data));
+            .then((data) => setPosts(data));
     }, []);
+    // console.log("posts: ",posts);
     return (
      <div className="grid grid-cols-3 gap-2">
-         {cardData.map((card)=>(
+         {posts.slice(0, 20).map((post)=>(
              <Card
-             title={card.title}
-             description={card.description}
-             body={card.body}
+                 key={post.id}
+             title={post.title}
+             body={post.body}
              />
          ))}
      </div>
