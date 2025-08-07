@@ -4,7 +4,7 @@ import App from "../App.jsx";
 import AboutPage from "../pages/AboutPage.jsx";
 import ServicesPage from "../pages/ServicesPage.jsx";
 import ContactPage from "../pages/ContactPage.jsx";
-import SimplePage from "../pages/SimplePage.jsx";
+import BlogDetails from "../pages/BlogDetails.jsx"
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 
 const routes = createBrowserRouter([
@@ -30,8 +30,8 @@ const routes = createBrowserRouter([
 
     },
     {
-        path: "/simple",
-        element:<SimplePage/>,
+        path: "/blogs/:id",
+        element:<BlogDetails/>,
     },
     {
         path: "*",
